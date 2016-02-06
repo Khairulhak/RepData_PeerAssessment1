@@ -18,7 +18,7 @@ TotalSteps <- aggregate(steps ~ date, data = activity, sum, na.rm = TRUE)
 ```
 
 If you do not understand the difference between a histogram and a barplot, research the difference between them. Make a histogram of the total number of steps taken each day
-```{r echo=TRUE}
+```{r total_step, echo=TRUE}
 hist(TotalSteps$steps, main = "Total steps", xlab = "Day", col = "grey")
 ```
 
@@ -30,7 +30,7 @@ median(TotalSteps$steps)
 
 ## What is the average daily activity pattern?
 Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
-```{r echo=TRUE}
+```{r average_step, echo=TRUE}
 TimeSeries <- tapply(activity$steps, activity$interval, mean, na.rm = TRUE)
 plot(row.names(TimeSeries), TimeSeries, type = "l", xlab = "Interval", 
     ylab = "Average", main = "Average number of steps taken", 
@@ -75,7 +75,7 @@ activityNew$steps <- NA_fill
 ```
 
 - Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
-```{r echo=TRUE}
+```{r total_step_new, echo=TRUE}
 TotalStepsNew <- aggregate(steps ~ date, data = activityNew, sum, na.rm = TRUE)
 hist(TotalStepsNew$steps, main = "Total steps", xlab = "Day", col = "grey")
 
@@ -111,7 +111,7 @@ names(stepsByDay) <- c("interval", "daylevel", "steps")
 
 
 - Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
-```{r echo=TRUE}
+```{r interval, echo=TRUE}
 xyplot(steps ~ interval | daylevel, stepsByDay, type = "l", layout = c(1, 2), 
     xlab = "Interval", ylab = "Number of steps")
 ```
