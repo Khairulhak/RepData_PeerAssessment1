@@ -12,7 +12,7 @@ activity <- read.csv("activity.csv", colClasses = c("numeric", "character", "num
 library(lattice)
 activity$date <- as.Date(activity$date, "%Y-%m-%d")
 ```
-
+  
 
 ## What is mean total number of steps taken per day?
 Calculate the total number of steps taken per day

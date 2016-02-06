@@ -12,7 +12,6 @@ library(lattice)
 activity$date <- as.Date(activity$date, "%Y-%m-%d")
 ```
 
-
 ## What is mean total number of steps taken per day?
 Calculate the total number of steps taken per day
 ```{r echo=TRUE}
@@ -116,4 +115,3 @@ names(stepsByDay) <- c("interval", "daylevel", "steps")
 xyplot(steps ~ interval | daylevel, stepsByDay, type = "l", layout = c(1, 2), 
     xlab = "Interval", ylab = "Number of steps")
 ```
-
