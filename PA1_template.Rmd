@@ -3,7 +3,6 @@
 - Load the data and unzip the file (i.e. read.csv())
 - Process/transform the data (if necessary) into a format suitable for your analysis
 
-
 ```{r echo=TRUE}
 filename <- unzip("activity.zip")
 activity <- read.csv("activity.csv", colClasses = c("numeric", "character", "numeric"))
@@ -109,6 +108,7 @@ activity$daylevel <- factor(activity$daylevel)
 stepsByDay <- aggregate(steps ~ interval + daylevel, data = activity, mean)
 names(stepsByDay) <- c("interval", "daylevel", "steps")
 ```
+
 
 - Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
 ```{r echo=TRUE}

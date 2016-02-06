@@ -4,7 +4,6 @@
 - Process/transform the data (if necessary) into a format suitable for your analysis
 
 
-
 ```r
 filename <- unzip("activity.zip")
 activity <- read.csv("activity.csv", colClasses = c("numeric", "character", "numeric"))
@@ -12,7 +11,6 @@ activity <- read.csv("activity.csv", colClasses = c("numeric", "character", "num
 library(lattice)
 activity$date <- as.Date(activity$date, "%Y-%m-%d")
 ```
-  
 
 ## What is mean total number of steps taken per day?
 Calculate the total number of steps taken per day
@@ -159,6 +157,7 @@ stepsByDay <- aggregate(steps ~ interval + daylevel, data = activity, mean)
 names(stepsByDay) <- c("interval", "daylevel", "steps")
 ```
 
+
 - Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
 
 ```r
@@ -167,4 +166,3 @@ xyplot(steps ~ interval | daylevel, stepsByDay, type = "l", layout = c(1, 2),
 ```
 
 ![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12-1.png) 
-
